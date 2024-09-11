@@ -4,4 +4,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: Poppins;
+}
+::-webkit-scrollbar{
+  display: none;
 } 
