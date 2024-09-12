@@ -24,7 +24,7 @@ const LeftSideBar = () => {
            {
             Array(12).fill("").map((item,index)=>(
                 <div key={index} className="friends">
-                <img src={assets.profile_img} alt="" />
+                <img src={assets.my_img} alt="" />
                 <div>
                     <p>Ashish Raghav</p>
                     <span>How are you?</span>

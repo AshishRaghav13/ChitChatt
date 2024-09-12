@@ -13,11 +13,11 @@ const Login = () => {
             <button type='submit' className='btn'>{currState ==="Sign Up" ? "Create Account": "Login"}</button>
             <div className="forget-login">
                 {
-                    currState =="Sign Up" 
+                    currState ==="Sign Up" 
                     ?
                     <p className="login-toggle">Already have an account! <span onClick={()=> setCurrState("Login")}>Login</span></p>
                     :
-                    <p className="login-toggle">Create an account! <span onClick={()=> setCurrState("Sign Up    ")}>click here</span></p>
+                    <p className="login-toggle">Create an account! <span onClick={()=> setCurrState("Sign Up")}>click here</span></p>
                 }
             </div>
         </form>
