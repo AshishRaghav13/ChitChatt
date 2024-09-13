@@ -16,6 +16,7 @@ import menu_icon from './menu_icon.png'
 import arrow_icon from './arrow_icon.png'
 import green_dot from './green_dot.png'
 import my_img from './MyImg.jpg';
+import bgImg from './bgImg.jpg';
 
 const assets = {
     avatar_icon,
@@ -35,6 +36,7 @@ const assets = {
     menu_icon,
     arrow_icon,
     my_img,
+    bgImg,
     green_dot
 }
 

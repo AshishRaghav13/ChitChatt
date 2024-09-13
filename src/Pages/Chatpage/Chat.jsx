@@ -3,6 +3,7 @@ import './Chat.css';
 import LeftSideBar from '../../Components/LeftSideBar/LeftSideBar';
 import ChatBox from '../../Components/ChatBox/ChatBox';
 import RightSideBar from '../../Components/RightSideBar/RightSideBar';
+import assets from '../../assets/assets';
 
 const Chat = () => {
   return (

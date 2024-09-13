@@ -1,6 +1,8 @@
 .chat{
     min-height: 100vh;
-    background: linear-gradient(rgb(145, 246, 145),rgb(77, 150, 77));
+    /* background: linear-gradient(rgb(145, 246, 145),rgb(77, 150, 77)); */
+    background-image: url('../../assets/bgImg.jpg');
+    background-size: cover;
     display: grid;
     place-items: center;
 }
@@ -8,8 +10,7 @@
 .chat-container{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    width: 95%;
+    width: 70%;
     height: 75vh;
     background-color: aliceblue;
-    border-radius: 10px;
 }
