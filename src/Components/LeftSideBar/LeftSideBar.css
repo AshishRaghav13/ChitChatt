@@ -119,5 +119,5 @@
 }
 
 .menu:hover .sub-menu{
-    display: inline-block;
+    display: block;
 }
