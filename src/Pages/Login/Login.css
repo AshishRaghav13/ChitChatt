@@ -5,6 +5,9 @@
     text-align: center;
     border: 1px solid black;
     color: white;
+    background: url('../../assets/home2.avif') no-repeat; 
+    background-position: left;
+    background-size: contain;
 }
 
 .login-form{
@@ -15,13 +18,13 @@
     gap: 24px;
     margin: auto;
     background-color: rgb(67, 65, 65);
-    box-shadow: 20px 20px 40px gray;
 }
 
 .form-input{
     padding: 10px;
     border-radius: 4px;
-    outline: none;
+    border: none;
+    outline-color: red;
 }
 
 .btn{
