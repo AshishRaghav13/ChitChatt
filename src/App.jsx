@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from './ConfigFiles/firebase'
+import AppContextProvider from './context/AppContext'
 
 const App = () => {
  const navigate = useNavigate();
@@ -25,9 +26,11 @@ const App = () => {
     <div>
     <ToastContainer/>
     <Routes>
+      <AppContextProvider>
       <Route path='/' element={<Login/>}/>
       <Route path='/chat' element={<Chat/>}/>
       <Route path='/profile' element={<ProfileUpdate/>}/>
+      </AppContextProvider>
     </Routes>
       
     </div>

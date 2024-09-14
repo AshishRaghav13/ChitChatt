@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAkUpw93uIGB1M1Z9Pn6Z0wg1VSt1Orwf8",
+  apiKey: import.meta.env.VITE_API_URL,
   authDomain: "chitchatt-d240f.firebaseapp.com",
   projectId: "chitchatt-d240f",
   storageBucket: "chitchatt-d240f.appspot.com",
