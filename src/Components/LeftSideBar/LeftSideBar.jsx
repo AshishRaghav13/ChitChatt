@@ -2,8 +2,14 @@ import './LeftSideBar.css';
 import React from 'react'
 import { TiMessages } from "react-icons/ti";
 import assets from '../../assets/assets';
+import { useNavigate } from 'react-router-dom';
+import { logout } from '../../ConfigFiles/firebase';
 
 const LeftSideBar = () => {
+    const navigate = useNavigate();
+    const handleClick = ()=>{
+        navigate('/profile');
+    }
   return (
     <div className='ls'>
         <div className='ls-top'>
@@ -14,9 +20,9 @@ const LeftSideBar = () => {
                 <div className="menu">
                     <img src={assets.menu_icon} alt="" />
                     <div className="sub-menu">
-                        <p>Edit Profile</p>
+                        <p onClick={handleClick}>Edit Profile</p>
                         <hr />
-                        <p>Logout</p>
+                        <p onClick={()=>logout()}>Logout</p>
                     </div>
                 </div>
             </div>
