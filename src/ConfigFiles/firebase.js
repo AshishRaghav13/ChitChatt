@@ -1,4 +1,3 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { getFirestore, setDoc,doc  } from "firebase/firestore";
@@ -36,7 +35,7 @@ const signup = async (username,email,password)=>{
          lastseen:Date.now()
       })
       await setDoc(doc(db,"chats",user.uid),{
-        chatsData:[]
+        chatData:[]
       })
   }catch(error){
      console.error(error);

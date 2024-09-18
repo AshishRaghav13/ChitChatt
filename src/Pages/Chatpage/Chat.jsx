@@ -1,18 +1,37 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Chat.css';
 import LeftSideBar from '../../Components/LeftSideBar/LeftSideBar';
 import ChatBox from '../../Components/ChatBox/ChatBox';
 import RightSideBar from '../../Components/RightSideBar/RightSideBar';
 import assets from '../../assets/assets';
+import { AppContext } from '../../context/AppContext';
 
 const Chat = () => {
+
+  const {chatData,userData} = useContext(AppContext);
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(()=>{
+    if(chatData && userData){
+      setLoading(false);
+    }
+  },[chatData,userData])
+
   return (
     <div className='chat'>
-      <div className="chat-container">
+      {
+        loading
+        ?
+        <p className='loading'></p>
+        :
+        <div className="chat-container">
         <LeftSideBar/>
         <ChatBox/>
         <RightSideBar/>
       </div>
+
+      }
     </div>
   )
 }
