@@ -123,3 +123,18 @@
     margin-bottom: 30px;
     border-radius: 10px;
 }
+.chat-welcome{
+    width: 100%;
+    object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.chat-welcome p{
+   font-size: 17px;
+   font-weight: 500;
+   color: #03352f;
+}

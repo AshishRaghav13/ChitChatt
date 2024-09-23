@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 
 const LeftSideBar = () => {
   const navigate = useNavigate();
-  const { userData,chatData } = useContext(AppContext);
+  const { userData,chatData,chatUser,setChatUser,messagesId,setMessagesId } = useContext(AppContext);
   const [user, setUser] = useState(null);
   const [showSearch, setShowSearch] = useState(false);
   const handleClick = () => {
@@ -86,7 +86,8 @@ const LeftSideBar = () => {
   }
 
   const setChat = async (item)=>{
-    console.log(item)
+    setMessagesId(item.messageId);
+    setChatUser(item);
   }
   return (
     <div className="ls">
