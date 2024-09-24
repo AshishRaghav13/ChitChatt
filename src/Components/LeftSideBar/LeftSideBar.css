@@ -121,3 +121,11 @@
 .menu:hover .sub-menu{
     display: block;
 }
+
+.friends.border img{
+  border: 3px solid rgb(5, 221, 5) ;
+}
+
+.friends.border div span{
+    color: rgb(5, 221, 5);
+}
