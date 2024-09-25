@@ -30,13 +30,13 @@ const AppContextProvider = (props)=>{
       // await updateDoc(userRef,{
       //   lastseen:Date.now()
       // })
-      // setInterval(() => {
-      //   if(auth){
-      //      updateDoc(userRef,{
-      //       lastseen:Date.now()
-      //      })
-      //   }
-      // },60000);
+      setInterval(() => {
+        if(auth){
+           updateDoc(userRef,{
+            lastseen:Date.now()
+           })
+        }
+      },60000);
 
     }catch(error){
         console.error(error)

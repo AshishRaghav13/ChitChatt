@@ -19,8 +19,8 @@ const RightSideBar = ()=>{
     return chatUser ? (
         <div className='rs'>
             <div className='rs-profile'>
-                <img onClick={()=>console.log(messages)} src={chatUser.userData.avatar} alt="" />
-                <h3>{chatUser.userData.name} <img src={assets.green_dot} className='dot' alt="" /></h3>
+                <img onClick={()=>console.log(chatUser)} src={chatUser.userData.avatar} alt="" />
+                <h3>{chatUser.userData.name}{Date.now() - chatUser.userData.lastseen <= 70000 ? <img src={assets.green_dot} className='dot' alt="" /> : null}</h3>
                 <p>{chatUser.userData.bio}</p>
             </div>
             <hr />
