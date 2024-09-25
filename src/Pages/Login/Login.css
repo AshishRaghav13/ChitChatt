@@ -41,3 +41,14 @@
    cursor: pointer;
    color: rgb(145, 145, 245);
 }
+.or-text{
+    color: rgb(180, 171, 171);
+}
+
+@media (max-width:768px) {
+    .login{
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+}

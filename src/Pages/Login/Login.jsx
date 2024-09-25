@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Login.css'
-import { signup,signin } from '../../ConfigFiles/firebase';
+import { signup,signin,resetPassword } from '../../ConfigFiles/firebase';
 import { toast } from 'react-toastify';
 
 const Login = () => {
@@ -34,8 +34,12 @@ const Login = () => {
                     ?
                     <p className="login-toggle">Already have an account! <span onClick={()=> setCurrState("Login")}>Login</span></p>
                     :
-                    <p className="login-toggle">Create an account! <span onClick={()=> setCurrState("Sign Up")}>click here</span></p>
+                    <p className="login-toggle">New to ChitChatt ! <span onClick={()=> setCurrState("Sign Up")}>Sign up now.</span></p>
                 }
+                {
+                  currState === "Login" ? <p className='or-text'>OR</p> : null
+                }
+                {currState === "Login" ? <p className="login-toggle">Forgot Password ?<span onClick={()=>resetPassword(email)}> reset here</span></p> : null}
             </div>
         </form>
     </div>

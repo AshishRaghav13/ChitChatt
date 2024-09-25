@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { getFirestore, setDoc,doc  } from "firebase/firestore";
+import { createUserWithEmailAndPassword, getAuth, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getFirestore, setDoc,doc, collection, query, where, getDocs  } from "firebase/firestore";
 import { toast } from "react-toastify";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_URL,
+  apiKey: import.meta.env.  VITE_API_URL,
   authDomain: "chitchatt-d240f.firebaseapp.com",
   projectId: "chitchatt-d240f",
   storageBucket: "chitchatt-d240f.appspot.com",
@@ -61,4 +61,26 @@ const logout = async()=>{
   }
 }
 
-export {signup,signin,logout,auth,db};
+const resetPassword = async(email)=>{
+    if(!email){
+      toast.error("Enter your email")
+      return null;
+    }
+    try {
+       const userRef = collection(db,'users');
+       const q = query(userRef,where("email","==",email));
+       const querySnap = await getDocs(q);
+       if(!querySnap.empty){
+        await sendPasswordResetEmail(auth,email);
+        toast.success("Reset Email Sent");
+       }
+       else{
+        toast.error("Email doesnt't exists");
+       }
+    } catch (error) {
+      console.error(error);
+      toast.error(error.message);
+    }
+}
+
+export {signup,signin,logout,auth,db,resetPassword};
