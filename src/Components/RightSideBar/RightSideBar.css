@@ -46,9 +46,9 @@
 
 .rs-media div{
     max-height: 180px;
-    overflow-y: scroll;
+    overflow-x: scroll;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 5px;
     margin-top: 8px;
 
@@ -59,10 +59,10 @@
     border-radius: 5px;
     cursor: pointer;
     align-items: center;
-    margin: 10px 0px;
+    margin: 10px 10px;
 }
 
-.rs-media button{
+.rs button{
     position: absolute;
     bottom: 20px;
     left: 50%;
