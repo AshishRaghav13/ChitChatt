@@ -54,6 +54,7 @@ const ChatBox = () => {
       }
     } catch (error) {
       toast.error(error.message);
+      console.error(error);
     }
     setInput("");
   };
@@ -109,10 +110,10 @@ const ChatBox = () => {
     if (messagesId) {
       const unSub = onSnapshot(doc(db, "messages", messagesId), (res) => {
         setMessages(res.data().messages.reverse());
-      });
+      })
       return () => {
         unSub();
-      };
+      }
     }
   }, [messagesId]);
 

@@ -41,7 +41,7 @@ const LeftSideBar = () => {
       const input = e.target.value;
       if (input) {
         setShowSearch(true);
-        const userRef = collection(db, "users");
+        const userRef = collection(db, 'users');
         const q = query(userRef, where("username", "==", input.toLowerCase()));
         const querySnap = await getDocs(q);
         if (!querySnap.empty && querySnap.docs[0].data().id !== userData.id) {
@@ -52,7 +52,7 @@ const LeftSideBar = () => {
             }
           });
 
-          if (userExist == false) {
+          if (!userExist) {
             setUser(querySnap.docs[0].data());
           }
           // console.log(querySnap.docs[0].data());
@@ -70,14 +70,14 @@ const LeftSideBar = () => {
 
   const addChat = async () => {
     const messagesRef = collection(db, "messages");
-    const chatRef = collection(db, "chats");
+    const chatsRef = collection(db, "chats");
     try {
       const newMessageRef = doc(messagesRef);
       await setDoc(newMessageRef, {
         createAt: serverTimestamp(),
         messages: [],
       });
-      await updateDoc(doc(chatRef, user.id), {
+      await updateDoc(doc(chatsRef, user.id), {
         chatsData: arrayUnion({
           messageId: newMessageRef.id,
           lastMessage: "",
@@ -87,7 +87,7 @@ const LeftSideBar = () => {
         }),
       });
 
-      await updateDoc(doc(chatRef, userData.id), {
+      await updateDoc(doc(chatsRef, userData.id), {
         chatsData: arrayUnion({
           messageId: newMessageRef.id,
           lastMessage: "",
@@ -127,11 +127,12 @@ const LeftSideBar = () => {
       );
       userChatsData.chatsData[chatIndex].messageSeen = true;
       await updateDoc(userChatsRef, {
-        chatsData: userChatsData.chatsData,
+        chatData: userChatsData.chatsData,
       });
       setChatVisible(true);
     } catch (error) {
-      toast.error(error.message)
+      toast.error(error.message);
+      console.error(error);
     }
   };
 
@@ -169,12 +170,12 @@ const LeftSideBar = () => {
         </div>
       </div>
       <div className="ls-list">
-        {showSearch && user ? (
+        {showSearch && user ? 
           <div className="friends add-user" onClick={addChat}>
             <img src={user.avatar} alt="" />
             <p>{user.name}</p>
           </div>
-        ) : (
+         : (
           chatData.map((item, index) => (
             <div
               onClick={() => setChat(item)}
