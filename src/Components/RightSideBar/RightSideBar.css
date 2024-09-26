@@ -27,11 +27,15 @@
     gap: 5px;
     margin: 5px 0px;
 }
+
 .rs-profile p{
     font-size: 11px;
     opacity: 80%;
     font-weight: 300;
 } 
+.rs-profile .back{
+    display: none;
+}
 
 .rs hr{
     border-color: gray;
@@ -76,4 +80,31 @@
     cursor: pointer;
     border: none;
     outline: none;
+}
+
+
+@media (max-width : 900px){
+    .rs{
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+    .rs-media{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: auto;
+
+    }
+    .rs-media div{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; 
+    }
+    .rs-profile .back{
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+        color: rgba(19, 193, 54, 0.797);
+    }
 }

@@ -28,3 +28,16 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+  @media (max-width:900px){
+    .chat-container{
+      display: flex;
+      width: 95%;
+    }
+    .loading{
+      font-size: 30px;
+    }
+    .rs-hide{
+      display: none;
+    }
+  }

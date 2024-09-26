@@ -18,6 +18,8 @@ import green_dot from './green_dot.png'
 import my_img from './MyImg.jpg';
 import bgImg from './bgImg.jpg';
 import home2 from './home2.avif';
+import rightArrow from './rightArrow.png';
+import leftArrow from './leftArrow.png';
 
 const assets = {
     avatar_icon,
@@ -39,7 +41,9 @@ const assets = {
     my_img,
     bgImg,
     green_dot,
-    home2
+    home2,
+    rightArrow,
+    leftArrow
 }
 
 export default assets;

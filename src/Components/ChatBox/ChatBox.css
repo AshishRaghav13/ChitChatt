@@ -138,3 +138,19 @@
    font-weight: 500;
    color: #03352f;
 }
+.chat-user .arrow{
+    display: none;
+}
+
+@media (max-width:900px){
+   .chat-box{
+    width: 100%;
+    justify-content: center;
+   } 
+   .help{
+    display: none;
+   }
+   .chat-user .arrow{
+    display: block;
+   }
+}

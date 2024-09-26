@@ -12,9 +12,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { db } from "../../ConfigFiles/firebase";
 import { toast } from "react-toastify";
 import upload from "../../lib/upload";
+import { useNavigate } from "react-router-dom";
+import RightSideBar from "../RightSideBar/RightSideBar";
 
 const ChatBox = () => {
-  const { userData, messagesId, chatUser, messages, setMessages } =
+  const navigate = useNavigate();
+  const { userData, messagesId, chatUser, messages, setMessages,chatVisible,setChatVisible } =
     useContext(AppContext);
 
   const [input, setInput] = useState("");
@@ -114,7 +117,7 @@ const ChatBox = () => {
   }, [messagesId]);
 
   return chatUser ? (
-    <div className="chat-box">
+    <div className={`chat-box ${chatVisible ? "":"hidden"}`}>
       <div className="chat-user">
         <img src={chatUser.userData.avatar} alt="" />
         <p>
@@ -122,6 +125,9 @@ const ChatBox = () => {
           {Date.now() - chatUser.userData.lastseen <= 70000 ? <img className="dot" src={assets.green_dot} alt="" /> : null }
         </p>
         <img src={assets.help_icon} alt="" className="help" />
+        <img onClick={()=>setChatVisible(false)} src={assets.leftArrow} className="arrow" alt="" />
+
+        <img onClick={()=>navigate("/rightSide")} src={assets.rightArrow} className="arrow" alt="" />
       </div>
 
       <div className="chat-msg">
@@ -168,7 +174,7 @@ const ChatBox = () => {
       </div>
     </div>
   ) : (
-    <div className="chat-welcome">
+    <div className={`chat-welcome ${chatVisible ? "":"hidden"}`}>
       <img src={assets.home2} alt="" />
       <p>Chat anytime,anyWhere</p>
     </div>

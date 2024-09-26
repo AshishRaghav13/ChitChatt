@@ -28,7 +28,7 @@ const Chat = () => {
         <div className="chat-container">
         <LeftSideBar/>
         <ChatBox/>
-        <RightSideBar/>
+        <div className='rs-hide'><RightSideBar/></div>
       </div>
 
       }
